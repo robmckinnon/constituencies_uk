@@ -2,6 +2,8 @@ namespace :constituencies_uk do
 
   def add_constituency attributes, values
     constituency = nil
+    region = nil
+
     attributes.each_with_index do |attribute, index|
       value = values[index]
       case attribute
@@ -42,15 +44,11 @@ namespace :constituencies_uk do
 
   desc "loads constituency data"
   task :load_data => [:environment] do
-    begin
-      if UkCountry.count == 0
-        file = File.join(File.dirname(__FILE__), "..", "data", "constituencies_uk_2010.tsv")
-        puts "loading data: #{file}"
-        data = IO.read(file)
-        load_constituencies data
-      end
-    rescue Exception => e
-      puts "tables not yet created: " + e.to_s
+    if UkCountry.count == 0
+      file = File.join(File.dirname(__FILE__), "..", "data", "constituencies_uk_2010.tsv")
+      puts "loading data: #{file}"
+      data = IO.read(file)
+      load_constituencies data
     end
   end
 

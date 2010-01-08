@@ -1,0 +1,16 @@
+Ruby on Rails plugin for UK's 2010 parliamentary constituencies.
+
+== Install as a Rails plugin
+
+ ./script/plugin install git://github.com/robmckinnon/constituencies_uk.git
+
+== What it does
+
+It creates and populates the following models:
+ - UkCountry
+ - UkRegion
+ - UkConstituency2010
+
+== To uninstall
+
+ ./script/plugin remove git://github.com/robmckinnon/constituencies_uk.git

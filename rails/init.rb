@@ -14,6 +14,10 @@ def add_constituency attributes, values
       when 'country'
         country = UkCountry.find_or_create_by_name(value)
         constituency.uk_country_id = country.id
+        unless region.uk_country_id
+          region.uk_country_id = country.id
+          region.save!
+        end
       when 'alternate_name'
         constituency.alternate_name = value
       when 'wikipedia_uri'

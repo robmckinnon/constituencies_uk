@@ -1,6 +1,6 @@
 class Uk2010Constituency < ActiveRecord::Base
 
-  belongs_to :uk_country
-  belongs_to :uk_region
+  belongs_to :country, :class_name => 'UkCountry'
+  belongs_to :region, :class_name => 'UkRegion'
 
 end

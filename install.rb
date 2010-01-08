@@ -31,22 +31,22 @@ class CreateConstituenciesUkTables < ActiveRecord::Migration
 
   def self.up
     create_table :uk_countries do |t|
-      t.name :string
-      t.wikipedia_uri :string
+      t.string :name
+      t.string :wikipedia_uri
     end
       
     create_table :uk_regions do |t|
-      t.name :string
-      t.wikipedia_uri :string
-      t.uk_country_id :integer
+      t.string :name
+      t.string :wikipedia_uri
+      t.integer :uk_country_id
     end
 
     create_table :uk_2010_constituencies do |t|
-      t.name :string
-      t.alternate_name :string
-      t.wikipedia_uri :string
-      t.uk_country_id :integer
-      t.uk_region_id :integer
+      t.string :name
+      t.string :alternate_name
+      t.string :wikipedia_uri
+      t.integer :uk_country_id
+      t.integer :uk_region_id
     end
     
     add_index :uk_regions, :uk_country_id

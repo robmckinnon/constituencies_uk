@@ -36,9 +36,13 @@ def load_constituencies data
   end
 end
 
-if UkCountry.count == 0
-  file = File.join(File.dirname(__FILE__), "..", "data", "constituencies_uk_2010.tsv")
-  puts "loading data: #{file}"
-  data = IO.read(file)
-  load_constituencies data
+begin
+  if UkCountry.count == 0
+    file = File.join(File.dirname(__FILE__), "..", "data", "constituencies_uk_2010.tsv")
+    puts "loading data: #{file}"
+    data = IO.read(file)
+    load_constituencies data
+  end
+rescue Exception => e
+  puts "tables not yet created: " + e.to_s
 end

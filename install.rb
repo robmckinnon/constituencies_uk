@@ -99,6 +99,7 @@ def load_constituencies data
   data.each_line do |line|
     if first_line
       attributes = line.split("\t")
+      first_line = false
     else
       add_constituency attributes, line.split("\t")
     end

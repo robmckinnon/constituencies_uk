@@ -56,9 +56,9 @@ class CreateConstituenciesUkTables < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table uk_countries
-    drop_table uk_regions
-    drop_table uk_2010_constituencies
+    drop_table :uk_countries
+    drop_table :uk_regions
+    drop_table :uk_2010_constituencies
   end
 end
 %

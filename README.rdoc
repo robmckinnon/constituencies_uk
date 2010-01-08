@@ -7,9 +7,9 @@ Ruby on Rails plugin for UK's 2010 parliamentary constituencies.
 == What it does
 
 It creates and populates the following models:
- - UkCountry
- - UkRegion
- - UkConstituency2010
+ UkCountry (4 countries)
+ UkRegion
+ UkConstituency2010 (650 constituencies)
 
 == To uninstall
 

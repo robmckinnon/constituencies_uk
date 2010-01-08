@@ -41,7 +41,7 @@ class CreateConstituenciesUkTables < ActiveRecord::Migration
       t.integer :uk_country_id
     end
 
-    create_table :uk_2010_constituencies do |t|
+    create_table :uk2010_constituencies do |t|
       t.string :name
       t.string :alternate_name
       t.string :wikipedia_uri
@@ -50,15 +50,15 @@ class CreateConstituenciesUkTables < ActiveRecord::Migration
     end
     
     add_index :uk_regions, :uk_country_id
-    add_index :uk_2010_constituencies, :uk_country_id
-    add_index :uk_2010_constituencies, :uk_region_id
+    add_index :uk2010_constituencies, :uk_country_id
+    add_index :uk2010_constituencies, :uk_region_id
     
   end
 
   def self.down
     drop_table :uk_countries
     drop_table :uk_regions
-    drop_table :uk_2010_constituencies
+    drop_table :uk2010_constituencies
   end
 end
 %

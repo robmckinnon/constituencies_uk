@@ -92,7 +92,7 @@ def add_constituency attributes, values
   constituency.save!
 end
 
-def load_constituencies data, year
+def load_constituencies data
   attributes = []
   first_line = true
   data.each_line do |line|

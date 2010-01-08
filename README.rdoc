@@ -4,12 +4,35 @@ Ruby on Rails plugin for UK's 2010 parliamentary constituencies.
 
  ./script/plugin install git://github.com/robmckinnon/constituencies_uk.git
 
+ rake constituencies_uk:load_data
+
 == What it does
 
 It creates and populates the following models:
  UkCountry (4 countries)
  UkRegion
- UkConstituency2010 (650 constituencies)
+ Uk2010Constituency (650 constituencies)
+
+== How to use
+
+Can be explored from rails console:
+
+> ./script/console
+
+ UkCountry.find_each {|c| puts c.name + ' ' + ( c.constituencies.count ).round.to_s }
+ # Wales 40
+ # Scotland 59
+ # England 533
+ # Northern Ireland 18
+
+ total = Uk2010Constituency.count
+ # 650
+ 
+ UkCountry.find_each {|c| puts c.name + ' ' + ( c.constituencies.count / total.to_f * 100 ).round.to_s }
+ # Wales 6%
+ # Scotland 9%
+ # England 82%
+ # Northern Ireland 3%
 
 == To uninstall
 

@@ -76,6 +76,7 @@ def add_constituency attributes, values
     value = values[index]
     case attribute
       when 'name'
+        puts "loading: #{value}"
         constituency = Uk2010Constituency.find_or_create_by_name(value)
       when 'region'
         region = UkRegion.find_or_create_by_name(value)
@@ -104,5 +105,7 @@ def load_constituencies data
   end
 end
 
-data = IO.read(File.expand_path(File.dirname(__FILE__) + "/data/constituencies_uk_2010.tsv"))
+file = File.expand_path(File.dirname(__FILE__) + "/data/constituencies_uk_2010.tsv")
+puts "loading data: #{file}"
+data = IO.read(file)
 load_constituencies data

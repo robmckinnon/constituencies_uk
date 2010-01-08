@@ -33,11 +33,12 @@ namespace :constituencies_uk do
     attributes = []
     first_line = true
     data.each_line do |line|
+      values = line.strip.split("\t")
       if first_line
-        attributes = line.split("\t")
+        attributes = values
         first_line = false
       else
-        add_constituency attributes, line.split("\t")
+        add_constituency attributes, values
       end
     end
   end

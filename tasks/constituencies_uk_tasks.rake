@@ -1,4 +1,4 @@
-task :constituencies_uk do
+namespace :constituencies_uk do
 
   def add_constituency attributes, values
     constituency = nil
@@ -40,7 +40,7 @@ task :constituencies_uk do
     end
   end
 
-  # desc loads constituency data
+  desc "loads constituency data"
   task :load_data => [:environment] do
     begin
       if UkCountry.count == 0

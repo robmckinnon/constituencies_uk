@@ -70,4 +70,5 @@ File.open(migration_file, 'w') {|file| file.write(migration)}
 puts "running: #{migration_file}"
 puts `cd #{RAILS_ROOT}; rake db:migrate --trace`
 
-require 'constituencies_uk'
+file = File.join(File.dirname(__FILE__), "lib", "constituencies_uk.rb")
+require file
